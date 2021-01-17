@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dice Game</title>
+   
+  </head>
+  <style>
+    html {
+    font-family: Arial;
+    background-image: url("old-bone-dice-on-green-background-rudy-bagozzi.jpg");
+    height:100%;
+  background-position: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+margin-top:-15px;
+margin-bottom:-15px;
+margin-left:-15px;
+margin-right:0px;
+}
+.game{
+    width:900px;
+    margin:auto;
+    text-align:center;
+    align-items: center;
+    margin-top: 30px;
+}
+.dice{
+    margin:0px 50px; 
+    text-align:center;
+    display:inline-block;
+    font-size: 20px;
+}
+h1{
+    font-size: 50px;
+    color:aquamarine;
+    text-align: center;
+}
+img{
+    width:200px;
+}
+p{
+    font-size: 20px;
+    font-style:times new roman;
+}
+.container{
+    display:grid;
+    grid-template-columns: 30% 40% 30%;
+}
+.container2{
+    display:grid;
+    grid-template-rows: 30% 40% 30%;
+}
+  </style>
+<script>
+    var images=["dice1.png", "dice2.png","dice3.png","dice4.png","dice5.png","dice6.png"];
+    function rolldice(){
+    var player1=Math.floor(Math.random()*6);
+    var player2=Math.floor(Math.random()*6);
+    if(player1>player2){
+        document.getElementById("result").innerHTML="Player 1 Wins";
+        document.getElementById("d1").src=images[player1];
+        document.getElementById("d2").src=images[player2];
+        }
+    else if(player1<player2){
+        document.getElementById("result").innerHTML="Player 2 Wins";
+        document.getElementById("d1").src=images[player1];
+        document.getElementById("d2").src=images[player2];
+        }
+    else{
+        document.getElementById("result").innerHTML="Draw";
+        document.getElementById("d1").src=images[player1];
+        document.getElementById("d2").src=images[player2];
+    }
+}
+</script>
+  <body>
+    <div class="mygame">
+    <h1>Start A Game</h1>
+    <div class="container2"></div>
+    <p id="result" align="center"></p>
+    <div class="container">
+    <div class="dice">
+    <p>Player 1</p>
+    <img src="Dice1.png" id="d1">
+    </div>
+    <div style="margin-top: 200px;" align="center"><button onclick="rolldice()">PLAY</button></div>
+    <div class="dice" >
+    <p>Player 2</p>
+    <img src="Dice1.png" id="d2">
+    </div>
+    </div>
+    </div>
+</div>
+  </body>
+</html>
